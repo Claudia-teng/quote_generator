@@ -1,3 +1,3 @@
 # quote_generator
 
-Link: https://claudia-teng.github.io/quote_generator/
+Demo page: https://claudia-teng.github.io/quote_generator/
