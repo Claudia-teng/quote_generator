@@ -8,22 +8,19 @@ const loader = document.getElementById('loader');
 
 let apiQuotes = [];
 
-// Loading Spinner Shown
-function loading() {
+function showLoadingSpinner() {
   loader.hidden = false;
   quoteContainer.hidden = true;
 }
 
-// Remove Loading Spinner
-function complete() {
+function removeLoadingSpinner() {
   loader.hidden = true;
   quoteContainer.hidden = false;
 }
 
 // Show new Quote
-
 function newQuote() {
-  loading();
+  showLoadingSpinner();
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
 
   // Check if Author is blank and replace it with unknown
@@ -40,12 +37,12 @@ function newQuote() {
     quoteText.classList.remove('long-quote');
   }
   quoteText.textContent = quote.text;
-  complete();
+  removeLoadingSpinner();
 }
 
 // Get quotes from api
 async function getQuotes() {
-  loading();
+  showLoadingSpinner();
   const apiUrl = 'https://type.fit/api/quotes';
   try {
       const response = await fetch(apiUrl);
